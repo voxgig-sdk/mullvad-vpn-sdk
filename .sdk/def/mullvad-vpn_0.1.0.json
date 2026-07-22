@@ -1,0 +1,150 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Mullvad VPN API",
+    "description": "The Mullvad VPN API enables users to interact with the Mullvad VPN browser extension, facilitating privacy and security solutions against mass surveillance and censorship. It provides functionalities such as retrieving the current IP address associated with the VPN connection.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/mullvad"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://ipv4.am.i.mullvad.net",
+      "description": "Mullvad VPN IPv4 API Server"
+    }
+  ],
+  "paths": {
+    "/json": {
+      "get": {
+        "summary": "Get My IP",
+        "description": "Retrieves the current IP address information associated with the VPN connection. Returns details about your current IP address, location, and connection status.",
+        "operationId": "getMyIp",
+        "tags": [
+          "IP Information"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with IP information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ip": {
+                      "type": "string",
+                      "description": "The current IP address",
+                      "example": "192.0.2.1"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Country code of the IP location",
+                      "example": "SE"
+                    },
+                    "city": {
+                      "type": "string",
+                      "description": "City of the IP location",
+                      "example": "Gothenburg"
+                    },
+                    "latitude": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "Latitude coordinate of the IP location",
+                      "example": 57.7089
+                    },
+                    "longitude": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "Longitude coordinate of the IP location",
+                      "example": 11.9746
+                    },
+                    "mullvad_exit_ip": {
+                      "type": "boolean",
+                      "description": "Indicates if the IP is a Mullvad exit IP",
+                      "example": true
+                    },
+                    "mullvad_exit_ip_hostname": {
+                      "type": "string",
+                      "description": "Hostname of the Mullvad exit server",
+                      "example": "se-got-wg-001"
+                    },
+                    "mullvad_server_type": {
+                      "type": "string",
+                      "description": "Type of Mullvad server",
+                      "example": "wireguard"
+                    },
+                    "blacklisted": {
+                      "type": "object",
+                      "description": "Information about blacklist status",
+                      "properties": {
+                        "blacklisted": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          }
+                        }
+                      }
+                    },
+                    "organization": {
+                      "type": "string",
+                      "description": "Organization associated with the IP",
+                      "example": "Mullvad VPN"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message",
+                      "example": "Service temporarily unavailable"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "IP Information",
+      "description": "Operations related to retrieving IP address information and VPN connection status"
+    }
+  ],
+  "externalDocs": {
+    "description": "Mullvad VPN API GitHub Repository",
+    "url": "https://github.com/l0v3m0n3y/mullvad"
+  }
+}

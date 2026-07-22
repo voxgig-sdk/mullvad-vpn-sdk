@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://github.com/l0v3m0n3y/mullvad"
+      }
+      description: "The Mullvad VPN API enables users to interact with the Mullvad VPN browser extension, facilitating privacy and security solutions against mass surveillance and censorship. It provides functionalities such as retrieving the current IP address associated with the VPN connection."
+      servers: [
+        {
+          description: "Mullvad VPN IPv4 API Server"
+          url: "https://ipv4.am.i.mullvad.net"
+        }
+      ]
+      summary: "The Mullvad VPN API enables users to interact with the Mullvad VPN browser extension, facilitating privacy and security solutions against mass surveillance and censorship."
+      title: "Mullvad VPN API"
+      version: "1.0.0"
+      website: "https://github.com/l0v3m0n3y/mullvad"
+    }
+  }
+}
+

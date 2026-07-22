@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "ip_information": {
+      "IP_INFORMATION00": {
+        "blacklisted": {},
+        "city": "s65",
+        "country": "s66",
+        "ip": "s67",
+        "latitude": 104,
+        "longitude": 105,
+        "mullvad_exit_ip": true,
+        "mullvad_exit_ip_hostname": "s6b",
+        "mullvad_server_type": "s6c",
+        "organization": "s6d",
+        "id": "IP_INFORMATION00"
+      },
+      "IP_INFORMATION01": {
+        "blacklisted": {},
+        "city": "sc9",
+        "country": "sca",
+        "ip": "scb",
+        "latitude": 204,
+        "longitude": 205,
+        "mullvad_exit_ip": true,
+        "mullvad_exit_ip_hostname": "scf",
+        "mullvad_server_type": "sd0",
+        "organization": "sd1",
+        "id": "IP_INFORMATION01"
+      },
+      "IP_INFORMATION02": {
+        "blacklisted": {},
+        "city": "s12d",
+        "country": "s12e",
+        "ip": "s12f",
+        "latitude": 304,
+        "longitude": 305,
+        "mullvad_exit_ip": true,
+        "mullvad_exit_ip_hostname": "s133",
+        "mullvad_server_type": "s134",
+        "organization": "s135",
+        "id": "IP_INFORMATION02"
+      }
+    }
+  },
+  "new": {
+    "ip_information": {
+      "ip_information_ref01": {
+        "blacklisted": {},
+        "city": "s191",
+        "country": "s192",
+        "ip": "s193",
+        "latitude": 404,
+        "longitude": 405,
+        "mullvad_exit_ip": true,
+        "mullvad_exit_ip_hostname": "s197",
+        "mullvad_server_type": "s198",
+        "organization": "s199"
+      }
+    }
+  }
+}

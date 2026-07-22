@@ -1,0 +1,82 @@
+# Entity: ip_information
+
+main: kit: entity: ip_information: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "blacklisted"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "city"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "country"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ip"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "latitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "longitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "mullvad_exit_ip"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "mullvad_exit_ip_hostname"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "mullvad_server_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "organization"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "ip_information"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/json"
+          parts: [
+            "json"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
