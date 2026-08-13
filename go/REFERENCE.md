@@ -98,16 +98,8 @@ fmt.Println(ipInformation.GetName()) // "ip_information"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `blacklisted` | `map[string]any` | No |  |
-| `city` | `string` | No |  |
-| `country` | `string` | No |  |
-| `ip` | `string` | No |  |
-| `latitude` | `float64` | No |  |
-| `longitude` | `float64` | No |  |
-| `mullvad_exit_ip` | `bool` | No |  |
-| `mullvad_exit_ip_hostname` | `string` | No |  |
-| `mullvad_server_type` | `string` | No |  |
-| `organization` | `string` | No |  |
+| `blacklisted` | `bool` | No |  |
+| `results` | `[]any` | No |  |
 
 ### Operations
 

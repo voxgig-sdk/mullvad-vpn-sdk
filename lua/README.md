@@ -226,15 +226,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `blacklisted` |  |
-| `city` |  |
-| `country` |  |
-| `ip` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `mullvad_exit_ip` |  |
-| `mullvad_exit_ip_hostname` |  |
-| `mullvad_server_type` |  |
-| `organization` |  |
+| `results` |  |
 
 Operations: Load.
 
@@ -259,16 +251,8 @@ Create an instance: `local ip_information = client:IpInformation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `table` |  |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `ip` | `string` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `mullvad_exit_ip` | `boolean` |  |
-| `mullvad_exit_ip_hostname` | `string` |  |
-| `mullvad_server_type` | `string` |  |
-| `organization` | `string` |  |
+| `blacklisted` | `boolean` |  |
+| `results` | `table` |  |
 
 #### Example: Load
 

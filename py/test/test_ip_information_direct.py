@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from mullvadvpn_sdk.utility.voxgig_struct import voxgig_struct as vs
 from mullvadvpn_sdk import MullvadVpnSDK
-from core import helpers
+from mullvadvpn_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _ip_information_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "MULLVADVPN_TEST_IP_INFORMATION_ENTID": {},
-        "MULLVADVPN_TEST_LIVE": "FALSE",
+        "MULLVAD_VPN_TEST_IP_INFORMATION_ENTID": {},
+        "MULLVAD_VPN_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("MULLVADVPN_TEST_LIVE") == "TRUE"
+    live = env.get("MULLVAD_VPN_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

@@ -23,8 +23,8 @@ module MullvadVpnTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("MULLVADVPN_TEST_LIVE")
-    override = getenv("MULLVADVPN_TEST_OVERRIDE")
+    live = getenv("MULLVAD_VPN_TEST_LIVE")
+    override = getenv("MULLVAD_VPN_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module MullvadVpnTestRunner
       end
     end
 
-    explain = getenv("MULLVADVPN_TEST_EXPLAIN")
-    m["MULLVADVPN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("MULLVAD_VPN_TEST_EXPLAIN")
+    m["MULLVAD_VPN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

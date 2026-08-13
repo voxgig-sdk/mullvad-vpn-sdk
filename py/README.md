@@ -38,7 +38,7 @@ client = MullvadVpnSDK()
 
 ### 3. Load an ipinformation
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = MullvadVpnSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 ipinformation = client.IpInformation().load()
 # ipinformation contains the mock response record
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -241,15 +242,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `blacklisted` |  |
-| `city` |  |
-| `country` |  |
-| `ip` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `mullvad_exit_ip` |  |
-| `mullvad_exit_ip_hostname` |  |
-| `mullvad_server_type` |  |
-| `organization` |  |
+| `results` |  |
 
 Operations: Load.
 
@@ -274,16 +267,8 @@ Create an instance: `ip_information = client.IpInformation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `dict` |  |
-| `city` | `str` |  |
-| `country` | `str` |  |
-| `ip` | `str` |  |
-| `latitude` | `float` |  |
-| `longitude` | `float` |  |
-| `mullvad_exit_ip` | `bool` |  |
-| `mullvad_exit_ip_hostname` | `str` |  |
-| `mullvad_server_type` | `str` |  |
-| `organization` | `str` |  |
+| `blacklisted` | `bool` |  |
+| `results` | `list` |  |
 
 #### Example: Load
 

@@ -34,7 +34,7 @@ client = MullvadVpnSDK.new
 
 ```ruby
 begin
-  # load returns the bare IpInformation record (raises on error).
+  # load returns the ENTITY — call data_get for the IpInformation record (raises on error).
   ipinformation = client.IpInformation.load()
   puts ipinformation
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = MullvadVpnSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 ipinformation = client.IpInformation.load()
 puts ipinformation
 ```
@@ -235,15 +236,7 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `blacklisted` |  |
-| `city` |  |
-| `country` |  |
-| `ip` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `mullvad_exit_ip` |  |
-| `mullvad_exit_ip_hostname` |  |
-| `mullvad_server_type` |  |
-| `organization` |  |
+| `results` |  |
 
 Operations: Load.
 
@@ -268,21 +261,13 @@ Create an instance: `ip_information = client.IpInformation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `Hash` |  |
-| `city` | `String` |  |
-| `country` | `String` |  |
-| `ip` | `String` |  |
-| `latitude` | `Float` |  |
-| `longitude` | `Float` |  |
-| `mullvad_exit_ip` | `Boolean` |  |
-| `mullvad_exit_ip_hostname` | `String` |  |
-| `mullvad_server_type` | `String` |  |
-| `organization` | `String` |  |
+| `blacklisted` | `Boolean` |  |
+| `results` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare IpInformation record (raises on error).
+# load returns the ENTITY — call data_get for the IpInformation record (raises on error).
 ip_information = client.IpInformation.load()
 ```
 

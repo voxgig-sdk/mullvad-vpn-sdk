@@ -35,7 +35,7 @@ $client = new MullvadVpnSDK();
 
 ```php
 try {
-    // load() returns the bare IpInformation record (throws on error).
+    // load() returns the ENTITY — call data_get() for the IpInformation record (throws on error).
     $ipinformation = $client->IpInformation()->load();
     print_r($ipinformation);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = MullvadVpnSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $ipinformation = $client->IpInformation()->load();
 print_r($ipinformation);
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -245,15 +246,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `blacklisted` |  |
-| `city` |  |
-| `country` |  |
-| `ip` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `mullvad_exit_ip` |  |
-| `mullvad_exit_ip_hostname` |  |
-| `mullvad_server_type` |  |
-| `organization` |  |
+| `results` |  |
 
 Operations: Load.
 
@@ -278,21 +271,13 @@ Create an instance: `$ip_information = $client->IpInformation();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `array` |  |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `ip` | `string` |  |
-| `latitude` | `float` |  |
-| `longitude` | `float` |  |
-| `mullvad_exit_ip` | `bool` |  |
-| `mullvad_exit_ip_hostname` | `string` |  |
-| `mullvad_server_type` | `string` |  |
-| `organization` | `string` |  |
+| `blacklisted` | `bool` |  |
+| `results` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare IpInformation record (throws on error).
+// load() returns the ENTITY — call data_get() for the IpInformation record (throws on error).
 $ip_information = $client->IpInformation()->load();
 ```
 

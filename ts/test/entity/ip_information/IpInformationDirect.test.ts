@@ -19,11 +19,15 @@ import {
 describe('IpInformationDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when MULLVADVPN_TEST_LIVE=TRUE.
-  afterEach(liveDelay('MULLVADVPN_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when MULLVAD_VPN_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MULLVAD_VPN_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new MullvadVpnSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -72,17 +76,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'MULLVADVPN_TEST_IP_INFORMATION_ENTID': {},
-    'MULLVADVPN_TEST_LIVE': 'FALSE',
+    'MULLVAD_VPN_TEST_IP_INFORMATION_ENTID': {},
+    'MULLVAD_VPN_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.MULLVADVPN_TEST_LIVE
+  const live = 'TRUE' === env.MULLVAD_VPN_TEST_LIVE
 
   if (live) {
     const client = new MullvadVpnSDK({
     })
 
-    let idmap: any = env['MULLVADVPN_TEST_IP_INFORMATION_ENTID']
+    let idmap: any = env['MULLVAD_VPN_TEST_IP_INFORMATION_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

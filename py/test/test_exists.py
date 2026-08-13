@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# MullvadVpn SDK exists test
 
 import pytest
 from mullvadvpn_sdk import MullvadVpnSDK

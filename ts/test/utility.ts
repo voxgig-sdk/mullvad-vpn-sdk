@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.MULLVADVPN_TEST_LIVE ||
-    'TRUE' === process.env.MULLVADVPN_TEST_OVERRIDE
+    'TRUE' === process.env.MULLVAD_VPN_TEST_LIVE ||
+    'TRUE' === process.env.MULLVAD_VPN_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.MULLVADVPN_TEST_EXPLAIN = process.env.MULLVADVPN_TEST_EXPLAIN || m.MULLVADVPN_TEST_EXPLAIN
+  m.MULLVAD_VPN_TEST_EXPLAIN = process.env.MULLVAD_VPN_TEST_EXPLAIN || m.MULLVAD_VPN_TEST_EXPLAIN
 
   return m
 }

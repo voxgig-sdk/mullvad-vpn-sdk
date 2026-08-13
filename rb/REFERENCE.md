@@ -93,16 +93,8 @@ ip_information = client.IpInformation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `blacklisted` | `Hash` | No |  |
-| `city` | `String` | No |  |
-| `country` | `String` | No |  |
-| `ip` | `String` | No |  |
-| `latitude` | `Float` | No |  |
-| `longitude` | `Float` | No |  |
-| `mullvad_exit_ip` | `Boolean` | No |  |
-| `mullvad_exit_ip_hostname` | `String` | No |  |
-| `mullvad_server_type` | `String` | No |  |
-| `organization` | `String` | No |  |
+| `blacklisted` | `Boolean` | No |  |
+| `results` | `Array` | No |  |
 
 ### Operations
 

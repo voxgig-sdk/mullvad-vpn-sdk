@@ -16,11 +16,11 @@
 import pytest
 
 from mullvadvpn_sdk import MullvadVpnSDK
-from core.error import MullvadVpnError
-from core.result import MullvadVpnResult
-from core.response import MullvadVpnResponse
-from core.spec import MullvadVpnSpec
-from feature.base_feature import MullvadVpnBaseFeature
+from mullvadvpn_sdk.core.error import MullvadVpnError
+from mullvadvpn_sdk.core.result import MullvadVpnResult
+from mullvadvpn_sdk.core.response import MullvadVpnResponse
+from mullvadvpn_sdk.core.spec import MullvadVpnSpec
+from mullvadvpn_sdk.feature.base_feature import MullvadVpnBaseFeature
 
 
 def _client():

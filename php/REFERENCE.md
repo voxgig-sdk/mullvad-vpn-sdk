@@ -92,16 +92,8 @@ $ip_information = $client->IpInformation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `blacklisted` | `array` | No |  |
-| `city` | `string` | No |  |
-| `country` | `string` | No |  |
-| `ip` | `string` | No |  |
-| `latitude` | `float` | No |  |
-| `longitude` | `float` | No |  |
-| `mullvad_exit_ip` | `bool` | No |  |
-| `mullvad_exit_ip_hostname` | `string` | No |  |
-| `mullvad_server_type` | `string` | No |  |
-| `organization` | `string` | No |  |
+| `blacklisted` | `bool` | No |  |
+| `results` | `array` | No |  |
 
 ### Operations
 

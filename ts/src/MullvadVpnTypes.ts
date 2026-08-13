@@ -6,28 +6,12 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface IpInformation {
-  blacklisted?: Record<string, any>
-  city?: string
-  country?: string
-  ip?: string
-  latitude?: number
-  longitude?: number
-  mullvad_exit_ip?: boolean
-  mullvad_exit_ip_hostname?: string
-  mullvad_server_type?: string
-  organization?: string
+  blacklisted?: boolean
+  results?: any[]
 }
 
 export interface IpInformationLoadMatch {
-  blacklisted?: Record<string, any>
-  city?: string
-  country?: string
-  ip?: string
-  latitude?: number
-  longitude?: number
-  mullvad_exit_ip?: boolean
-  mullvad_exit_ip_hostname?: string
-  mullvad_server_type?: string
-  organization?: string
+  blacklisted?: boolean
+  results?: any[]
 }
 

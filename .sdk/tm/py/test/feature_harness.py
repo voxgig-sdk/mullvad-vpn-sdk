@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import MullvadVpnControl
-from core.error import MullvadVpnError
-from core.result import MullvadVpnResult
-from core.spec import MullvadVpnSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import MullvadVpnControl
+from projectname_sdk.core.error import MullvadVpnError
+from projectname_sdk.core.result import MullvadVpnResult
+from projectname_sdk.core.spec import MullvadVpnSpec
 
 
 # True when this SDK was generated with the named feature.

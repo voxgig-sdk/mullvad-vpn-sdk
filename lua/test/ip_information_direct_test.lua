@@ -60,11 +60,11 @@ function ip_information_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["MULLVADVPN_TEST_IP_INFORMATION_ENTID"] = {},
-    ["MULLVADVPN_TEST_LIVE"] = "FALSE",
+    ["MULLVAD_VPN_TEST_IP_INFORMATION_ENTID"] = {},
+    ["MULLVAD_VPN_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["MULLVADVPN_TEST_LIVE"] == "TRUE"
+  local live = env["MULLVAD_VPN_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

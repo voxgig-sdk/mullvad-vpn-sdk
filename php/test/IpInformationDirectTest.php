@@ -65,11 +65,11 @@ function ip_information_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "MULLVADVPN_TEST_IP_INFORMATION_ENTID" => [],
-        "MULLVADVPN_TEST_LIVE" => "FALSE",
+        "MULLVAD_VPN_TEST_IP_INFORMATION_ENTID" => [],
+        "MULLVAD_VPN_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["MULLVADVPN_TEST_LIVE"] === "TRUE";
+    $live = $env["MULLVAD_VPN_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

@@ -43,8 +43,8 @@ class MullvadVpnTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('MULLVADVPN_TEST_LIVE');
-        $override = self::getenv('MULLVADVPN_TEST_OVERRIDE');
+        $live = self::getenv('MULLVAD_VPN_TEST_LIVE');
+        $override = self::getenv('MULLVAD_VPN_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class MullvadVpnTestRunner
             }
         }
 
-        $explain = self::getenv('MULLVADVPN_TEST_EXPLAIN');
+        $explain = self::getenv('MULLVAD_VPN_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['MULLVADVPN_TEST_EXPLAIN'] = $explain;
+            $m['MULLVAD_VPN_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

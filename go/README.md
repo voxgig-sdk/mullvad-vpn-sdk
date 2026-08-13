@@ -259,15 +259,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"blacklisted"` |  |
-| `"city"` |  |
-| `"country"` |  |
-| `"ip"` |  |
-| `"latitude"` |  |
-| `"longitude"` |  |
-| `"mullvad_exit_ip"` |  |
-| `"mullvad_exit_ip_hostname"` |  |
-| `"mullvad_server_type"` |  |
-| `"organization"` |  |
+| `"results"` |  |
 
 Operations: Load.
 
@@ -292,16 +284,8 @@ Create an instance: `ipInformation := client.IpInformation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `map[string]any` |  |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `ip` | `string` |  |
-| `latitude` | `float64` |  |
-| `longitude` | `float64` |  |
-| `mullvad_exit_ip` | `bool` |  |
-| `mullvad_exit_ip_hostname` | `string` |  |
-| `mullvad_server_type` | `string` |  |
-| `organization` | `string` |  |
+| `blacklisted` | `bool` |  |
+| `results` | `[]any` |  |
 
 #### Example: Load
 

@@ -90,16 +90,8 @@ local ip_information = client:IpInformation(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `blacklisted` | `table` | No |  |
-| `city` | `string` | No |  |
-| `country` | `string` | No |  |
-| `ip` | `string` | No |  |
-| `latitude` | `number` | No |  |
-| `longitude` | `number` | No |  |
-| `mullvad_exit_ip` | `boolean` | No |  |
-| `mullvad_exit_ip_hostname` | `string` | No |  |
-| `mullvad_server_type` | `string` | No |  |
-| `organization` | `string` | No |  |
+| `blacklisted` | `boolean` | No |  |
+| `results` | `table` | No |  |
 
 ### Operations
 

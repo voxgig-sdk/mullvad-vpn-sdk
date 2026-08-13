@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = MullvadVpnSDK.test()
 
 const ipinformation = await client.IpInformation().load()
-// ipinformation is a bare entity populated with mock response data
+// ipinformation is the entity, populated with mock response data
+// — call ipinformation.data() for the record itself
 console.log(ipinformation)
 ```
 
@@ -285,15 +286,7 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `blacklisted` |  |
-| `city` |  |
-| `country` |  |
-| `ip` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `mullvad_exit_ip` |  |
-| `mullvad_exit_ip_hostname` |  |
-| `mullvad_server_type` |  |
-| `organization` |  |
+| `results` |  |
 
 Operations: load.
 
@@ -318,16 +311,8 @@ Create an instance: `const ip_information = client.IpInformation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `Record<string, any>` |  |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `ip` | `string` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `mullvad_exit_ip` | `boolean` |  |
-| `mullvad_exit_ip_hostname` | `string` |  |
-| `mullvad_server_type` | `string` |  |
-| `organization` | `string` |  |
+| `blacklisted` | `boolean` |  |
+| `results` | `any[]` |  |
 
 #### Example: Load
 
