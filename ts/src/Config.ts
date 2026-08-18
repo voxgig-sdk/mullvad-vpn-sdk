@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://ipv4.am.i.mullvad.net',
+    base: "https://ipv4.am.i.mullvad.net",
 
     headers: {
       "content-type": "application/json"
@@ -55,18 +55,12 @@ class Config {
     "ip_information": {
       "fields": [
         {
-          "active": true,
           "name": "blacklisted",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 0
+          "type": "`$BOOLEAN`"
         },
         {
-          "active": true,
           "name": "results",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 1
+          "type": "`$ARRAY`"
         }
       ],
       "name": "ip_information",
@@ -76,7 +70,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -88,11 +81,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.blacklisted`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

@@ -23,6 +23,7 @@ build = {
   modules = {
     ["mullvad-vpn_sdk"] = "mullvad-vpn_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

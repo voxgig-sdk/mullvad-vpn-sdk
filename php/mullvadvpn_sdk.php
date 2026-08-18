@@ -40,7 +40,7 @@ class MullvadVpnSDK
         $utility = new MullvadVpnUtility();
         $this->_utility = $utility;
 
-        $config = MullvadVpnConfig::make_config();
+        $config = MullvadVpnConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

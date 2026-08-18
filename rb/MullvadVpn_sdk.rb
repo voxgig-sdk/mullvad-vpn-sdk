@@ -28,7 +28,7 @@ class MullvadVpnSDK
     utility = MullvadVpnUtility.new
     @_utility = utility
 
-    config = MullvadVpnConfig.make_config
+    config = MullvadVpnConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
