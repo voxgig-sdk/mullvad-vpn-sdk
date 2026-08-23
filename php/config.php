@@ -33,6 +33,9 @@ class MullvadVpnConfig
         return [
             "main" => [
                 "name" => "MullvadVpn",
+                "slug" => "mullvad-vpn",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
