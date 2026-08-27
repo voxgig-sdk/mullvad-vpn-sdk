@@ -28,6 +28,7 @@ module MullvadVpnConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
