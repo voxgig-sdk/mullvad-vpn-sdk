@@ -77,13 +77,18 @@ class MullvadVpnConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/json',
-                  'parts' => [
-                    'json',
+                  'segments' => [
+                    [
+                      'lit' => 'json',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.blacklisted`',
+                  ],
+                  'parts' => [
+                    'json',
                   ],
                 ],
               ],
