@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { MullvadVpnSDK } from '@voxgig-sdk/mullvad-vpn'
+import { MullvadVpnSDK } from '@voxgig-sdk/mullvad-vpn-sdk'
 
 const client = new MullvadVpnSDK()
 ```
@@ -403,7 +403,7 @@ mullvad-vpn/
 Import the SDK from the package root:
 
 ```ts
-import { MullvadVpnSDK } from '@voxgig-sdk/mullvad-vpn'
+import { MullvadVpnSDK } from '@voxgig-sdk/mullvad-vpn-sdk'
 ```
 
 ### Entity state

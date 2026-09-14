@@ -105,7 +105,7 @@ local result, err = client:IpInformation():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases) |
+| TypeScript | `@voxgig-sdk/mullvad-vpn-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases) |
 | Python | `voxgig-sdk-mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases) |
 | PHP | `voxgig-sdk/mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/mullvad-vpn-sdk/go` | `go get github.com/voxgig-sdk/mullvad-vpn-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:IpInformation():load()
 ### TypeScript
 
 ```ts
-import { MullvadVpnSDK } from '@voxgig-sdk/mullvad-vpn'
+import { MullvadVpnSDK } from '@voxgig-sdk/mullvad-vpn-sdk'
 
 const client = new MullvadVpnSDK()
 
