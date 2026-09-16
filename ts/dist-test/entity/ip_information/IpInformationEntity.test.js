@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.MULLVAD_VPN_TEST_LIVE;
         for (const op of ['load']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'ip_information.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'ip_information.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set MULLVAD_VPN_TEST_IP_INFORMATION_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "blacklisted", "req": false, "type": "`$BOOLEAN`", "index$": 0 }, { "active": true, "name": "results", "req": false, "type": "`$ARRAY`", "index$": 1 }], "name": "ip_information", "op": { "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": {}, "contract": { "id": "GET /json", "json": "{\"operationId\":\"getMyIp\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"blacklisted\":{\"description\":\"Information about blacklist status\",\"properties\":{\"blacklisted\":{\"example\":false,\"type\":\"boolean\"},\"results\":{\"items\":{\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"city\":{\"description\":\"City of the IP location\",\"example\":\"Gothenburg\",\"type\":\"string\"},\"country\":{\"description\":\"Country code of the IP location\",\"example\":\"SE\",\"type\":\"string\"},\"ip\":{\"description\":\"The current IP address\",\"example\":\"192.0.2.1\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate of the IP location\",\"example\":57.7089,\"format\":\"float\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate of the IP location\",\"example\":11.9746,\"format\":\"float\",\"type\":\"number\"},\"mullvad_exit_ip\":{\"description\":\"Indicates if the IP is a Mullvad exit IP\",\"example\":true,\"type\":\"boolean\"},\"mullvad_exit_ip_hostname\":{\"description\":\"Hostname of the Mullvad exit server\",\"example\":\"se-got-wg-001\",\"type\":\"string\"},\"mullvad_server_type\":{\"description\":\"Type of Mullvad server\",\"example\":\"wireguard\",\"type\":\"string\"},\"organization\":{\"description\":\"Organization associated with the IP\",\"example\":\"Mullvad VPN\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with IP information\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Internal server error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Service temporarily unavailable\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Service unavailable\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/json", "segments": [{ "lit": "json" }], "select": {}, "transform": { "req": "`reqdata`", "res": "`body.blacklisted`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "ip_information", "name__orig": "ip_information", "Name": "IpInformation", "name_": "ip_information", "name-": "ip-information", "NAME": "IP_INFORMATION", "index$": 0 }, { "active": true, "entity": "ip_information", "key$": "BasicIpInformationFlow", "kind": "basic", "name": "BasicIpInformationFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "ip_information_ref01", "srcdatavar": "ip_information_ref01_data", "suffix": "_dt0" }, "match": {}, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-ip_information_ref01" } }], "index$": 0 }] }, 'IpInformation');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -102,12 +100,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['MULLVAD_VPN_TEST_IP_INFORMATION_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'MULLVAD_VPN_TEST_IP_INFORMATION_ENTID': idmap,
         'MULLVAD_VPN_TEST_LIVE': 'FALSE',
@@ -115,7 +107,13 @@ function basicSetup(extra) {
     });
     idmap = env['MULLVAD_VPN_TEST_IP_INFORMATION_ENTID'];
     const live = 'TRUE' === env.MULLVAD_VPN_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['MULLVAD_VPN_TEST_IP_INFORMATION_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.MullvadVpnSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -126,7 +124,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -138,7 +137,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.MULLVAD_VPN_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

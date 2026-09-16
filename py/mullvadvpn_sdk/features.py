@@ -1,12 +1,18 @@
 # MullvadVpn SDK feature factory
 
 from mullvadvpn_sdk.feature.base_feature import MullvadVpnBaseFeature
+from mullvadvpn_sdk.feature.ratelimit_feature import MullvadVpnRatelimitFeature
+from mullvadvpn_sdk.feature.retry_feature import MullvadVpnRetryFeature
 from mullvadvpn_sdk.feature.test_feature import MullvadVpnTestFeature
+from mullvadvpn_sdk.feature.timeout_feature import MullvadVpnTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: MullvadVpnBaseFeature(),
+    "ratelimit": lambda: MullvadVpnRatelimitFeature(),
+    "retry": lambda: MullvadVpnRetryFeature(),
     "test": lambda: MullvadVpnTestFeature(),
+    "timeout": lambda: MullvadVpnTimeoutFeature(),
 }
 
 
