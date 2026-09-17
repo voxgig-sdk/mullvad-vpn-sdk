@@ -105,12 +105,12 @@ local result, err = client:IpInformation():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/mullvad-vpn-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases) |
-| Python | `voxgig-sdk-mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases) |
-| PHP | `voxgig-sdk/mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases) |
+| TypeScript | `@voxgig-sdk/mullvad-vpn-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/tags) |
+| Python | `voxgig-sdk-mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/tags) |
+| PHP | `voxgig-sdk/mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/mullvad-vpn-sdk/go` | `go get github.com/voxgig-sdk/mullvad-vpn-sdk/go@latest` |
-| Ruby | `voxgig-sdk-mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases) |
-| Lua | `voxgig-sdk-mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases) |
+| Ruby | `voxgig-sdk-mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/tags) |
+| Lua | `voxgig-sdk-mullvad-vpn` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mullvad-vpn-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/mullvad-vpn-sdk/go-cli` | `go install github.com/voxgig-sdk/mullvad-vpn-sdk/go-cli/cmd/mullvad-vpn@latest` |
 | Go MCP server | `github.com/voxgig-sdk/mullvad-vpn-sdk/go-mcp` | `go get github.com/voxgig-sdk/mullvad-vpn-sdk/go-mcp@latest` |
 
