@@ -113,10 +113,12 @@ class MullvadVpnConfig
           'fields' => [
             [
               'name' => 'blacklisted',
+              'title' => 'Blacklisted',
               'type' => '`$BOOLEAN`',
             ],
             [
               'name' => 'results',
+              'title' => 'Results',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -127,7 +129,6 @@ class MullvadVpnConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/json',
@@ -136,14 +137,16 @@ class MullvadVpnConfig
                       'lit' => 'json',
                     ],
                   ],
-                  'select' => [],
+                  'parts' => [
+                    'json',
+                  ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.blacklisted`',
                   ],
-                  'parts' => [
-                    'json',
-                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],

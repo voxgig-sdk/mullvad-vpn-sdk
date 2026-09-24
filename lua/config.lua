@@ -87,10 +87,12 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "blacklisted",
+            ["title"] = "Blacklisted",
             ["type"] = "`$BOOLEAN`",
           },
           {
             ["name"] = "results",
+            ["title"] = "Results",
             ["type"] = "`$ARRAY`",
           },
         },
@@ -101,7 +103,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/json",
@@ -110,14 +111,16 @@ local function make_config()
                     ["lit"] = "json",
                   },
                 },
-                ["select"] = {},
+                ["parts"] = {
+                  "json",
+                },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.blacklisted`",
                 },
-                ["parts"] = {
-                  "json",
-                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },

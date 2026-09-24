@@ -24,26 +24,94 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "ip_information": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "blacklisted",
-              "req": false,
-              "type": "`$BOOLEAN`"
+          "fields": {
+            "blacklisted": {
+              "a": true,
+              "h": "Blacklisted",
+              "n": "blacklisted",
+              "r": false,
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "results",
-              "req": false,
-              "type": "`$ARRAY`"
+            "results": {
+              "a": true,
+              "h": "Results",
+              "n": "results",
+              "r": false,
+              "t": "`$ARRAY`"
             }
-          ],
+          },
           "name": "ip_information",
           "op": {
             "load": {
@@ -51,24 +119,24 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /json",
-                    "json": "{\"operationId\":\"getMyIp\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"blacklisted\":{\"description\":\"Information about blacklist status\",\"properties\":{\"blacklisted\":{\"example\":false,\"type\":\"boolean\"},\"results\":{\"items\":{\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"city\":{\"description\":\"City of the IP location\",\"example\":\"Gothenburg\",\"type\":\"string\"},\"country\":{\"description\":\"Country code of the IP location\",\"example\":\"SE\",\"type\":\"string\"},\"ip\":{\"description\":\"The current IP address\",\"example\":\"192.0.2.1\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate of the IP location\",\"example\":57.7089,\"format\":\"float\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate of the IP location\",\"example\":11.9746,\"format\":\"float\",\"type\":\"number\"},\"mullvad_exit_ip\":{\"description\":\"Indicates if the IP is a Mullvad exit IP\",\"example\":true,\"type\":\"boolean\"},\"mullvad_exit_ip_hostname\":{\"description\":\"Hostname of the Mullvad exit server\",\"example\":\"se-got-wg-001\",\"type\":\"string\"},\"mullvad_server_type\":{\"description\":\"Type of Mullvad server\",\"example\":\"wireguard\",\"type\":\"string\"},\"organization\":{\"description\":\"Organization associated with the IP\",\"example\":\"Mullvad VPN\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with IP information\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Internal server error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Service temporarily unavailable\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Service unavailable\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/json",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/json",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "json"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.blacklisted`"
                   }
@@ -497,17 +565,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "ip_information_ref01",
                 "srcdatavar": "ip_information_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

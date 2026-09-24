@@ -91,10 +91,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "blacklisted",
+						"title": "Blacklisted",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "results",
+						"title": "Results",
 						"type": "`$ARRAY`",
 					},
 				},
@@ -105,7 +107,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/json",
@@ -114,14 +115,16 @@ func MakeConfig() map[string]any {
 										"lit": "json",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"json",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.blacklisted`",
 								},
-								"parts": []any{
-									"json",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

@@ -1,0 +1,51 @@
+# Entity: ip_information
+
+main: kit: entity: ip_information: {
+
+  alias: field: {}
+
+  fields: {
+    blacklisted: {
+      h: "Blacklisted"
+      n: "blacklisted"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "ip_information"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/json"
+          s: [
+            {
+              lit: "json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.blacklisted`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
