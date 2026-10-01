@@ -15,14 +15,30 @@ declare(strict_types=1);
 /** IpInformation entity data model. */
 class IpInformation
 {
-    public ?bool $blacklisted = null;
-    public ?array $results = null;
+    public ?array $blacklisted = null;
+    public ?string $city = null;
+    public ?string $country = null;
+    public ?string $ip = null;
+    public ?float $latitude = null;
+    public ?float $longitude = null;
+    public ?bool $mullvad_exit_ip = null;
+    public ?string $mullvad_exit_ip_hostname = null;
+    public ?string $mullvad_server_type = null;
+    public ?string $organization = null;
 }
 
 /** Request payload for IpInformation#load. */
 class IpInformationLoadMatch
 {
-    public ?bool $blacklisted = null;
-    public ?array $results = null;
+    public ?array $blacklisted = null;
+    public ?string $city = null;
+    public ?string $country = null;
+    public ?string $ip = null;
+    public ?float $latitude = null;
+    public ?float $longitude = null;
+    public ?bool $mullvad_exit_ip = null;
+    public ?string $mullvad_exit_ip_hostname = null;
+    public ?string $mullvad_server_type = null;
+    public ?string $organization = null;
 }
 

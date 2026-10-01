@@ -258,8 +258,16 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"blacklisted"` |  |
-| `"results"` |  |
+| `"blacklisted"` | Information about blacklist status |
+| `"city"` | City of the IP location |
+| `"country"` | Country code of the IP location |
+| `"ip"` | The current IP address |
+| `"latitude"` | Latitude coordinate of the IP location |
+| `"longitude"` | Longitude coordinate of the IP location |
+| `"mullvad_exit_ip"` | Indicates if the IP is a Mullvad exit IP |
+| `"mullvad_exit_ip_hostname"` | Hostname of the Mullvad exit server |
+| `"mullvad_server_type"` | Type of Mullvad server |
+| `"organization"` | Organization associated with the IP |
 
 Operations: Load.
 
@@ -284,8 +292,16 @@ Create an instance: `ipInformation := client.IpInformation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `bool` |  |
-| `results` | `[]any` |  |
+| `blacklisted` | `map[string]any` | Information about blacklist status |
+| `city` | `string` | City of the IP location |
+| `country` | `string` | Country code of the IP location |
+| `ip` | `string` | The current IP address |
+| `latitude` | `float64` | Latitude coordinate of the IP location |
+| `longitude` | `float64` | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | `bool` | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | `string` | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | `string` | Type of Mullvad server |
+| `organization` | `string` | Organization associated with the IP |
 
 #### Example: Load
 

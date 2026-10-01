@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 MullvadVpnUtility::setRegistrar(function (MullvadVpnUtility $u): void {
     $u->clean = [MullvadVpnClean::class, 'call'];
+    $u->clean_add = [MullvadVpnClean::class, 'add'];
+    $u->clean_explain = [MullvadVpnDone::class, 'clean_explain'];
     $u->done = [MullvadVpnDone::class, 'call'];
     $u->make_error = [MullvadVpnMakeError::class, 'call'];
     $u->feature_add = [MullvadVpnFeatureAdd::class, 'call'];

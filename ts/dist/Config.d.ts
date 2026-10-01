@@ -74,11 +74,19 @@ declare class Config {
     };
     entity: {
         ip_information: {
-            fields: {
+            fields: ({
                 name: string;
                 title: string;
                 type: string;
-            }[];
+                short: string;
+                format?: undefined;
+            } | {
+                name: string;
+                title: string;
+                type: string;
+                short: string;
+                format: string;
+            })[];
             name: string;
             op: {
                 load: {

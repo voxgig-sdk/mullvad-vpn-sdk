@@ -21,6 +21,10 @@ SDK operations: `load`.
 Key fields to recognise:
 
 - `blacklisted`: Information about blacklist status
+- `city`: City of the IP location
+- `country`: Country code of the IP location
+- `ip`: The current IP address
+- `latitude`: Latitude coordinate of the IP location
 
 ### Route map
 

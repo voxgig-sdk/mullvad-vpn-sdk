@@ -18,8 +18,16 @@ type IpInformation struct {
 
 // IpInformationLoadMatch is the typed request payload for IpInformation.LoadTyped.
 type IpInformationLoadMatch struct {
-	Blacklisted *bool `json:"blacklisted,omitempty"`
-	Results *[]any `json:"results,omitempty"`
+	Blacklisted *map[string]any `json:"blacklisted,omitempty"`
+	City *string `json:"city,omitempty"`
+	Country *string `json:"country,omitempty"`
+	Ip *string `json:"ip,omitempty"`
+	Latitude *float64 `json:"latitude,omitempty"`
+	Longitude *float64 `json:"longitude,omitempty"`
+	MullvadExitIp *bool `json:"mullvad_exit_ip,omitempty"`
+	MullvadExitIpHostname *string `json:"mullvad_exit_ip_hostname,omitempty"`
+	MullvadServerType *string `json:"mullvad_server_type,omitempty"`
+	Organization *string `json:"organization,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

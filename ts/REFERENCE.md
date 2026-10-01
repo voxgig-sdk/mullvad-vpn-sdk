@@ -116,8 +116,16 @@ const ip_information = client.IpInformation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `blacklisted` | `boolean` | No |  |
-| `results` | `any[]` | No |  |
+| `blacklisted` | `Record<string, any>` | No | Information about blacklist status |
+| `city` | `string` | No | City of the IP location |
+| `country` | `string` | No | Country code of the IP location |
+| `ip` | `string` | No | The current IP address |
+| `latitude` | `number` | No | Latitude coordinate of the IP location |
+| `longitude` | `number` | No | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | `boolean` | No | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | `string` | No | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | `string` | No | Type of Mullvad server |
+| `organization` | `string` | No | Organization associated with the IP |
 
 ### Operations
 

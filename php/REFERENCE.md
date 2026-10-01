@@ -92,8 +92,16 @@ $ip_information = $client->IpInformation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `blacklisted` | `bool` | No |  |
-| `results` | `array` | No |  |
+| `blacklisted` | `array` | No | Information about blacklist status |
+| `city` | `string` | No | City of the IP location |
+| `country` | `string` | No | Country code of the IP location |
+| `ip` | `string` | No | The current IP address |
+| `latitude` | `float` | No | Latitude coordinate of the IP location |
+| `longitude` | `float` | No | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | `bool` | No | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | `string` | No | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | `string` | No | Type of Mullvad server |
+| `organization` | `string` | No | Organization associated with the IP |
 
 ### Operations
 

@@ -241,8 +241,16 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `blacklisted` |  |
-| `results` |  |
+| `blacklisted` | Information about blacklist status |
+| `city` | City of the IP location |
+| `country` | Country code of the IP location |
+| `ip` | The current IP address |
+| `latitude` | Latitude coordinate of the IP location |
+| `longitude` | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | Type of Mullvad server |
+| `organization` | Organization associated with the IP |
 
 Operations: Load.
 
@@ -267,8 +275,16 @@ Create an instance: `ip_information = client.IpInformation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `bool` |  |
-| `results` | `list` |  |
+| `blacklisted` | `dict` | Information about blacklist status |
+| `city` | `str` | City of the IP location |
+| `country` | `str` | Country code of the IP location |
+| `ip` | `str` | The current IP address |
+| `latitude` | `float` | Latitude coordinate of the IP location |
+| `longitude` | `float` | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | `bool` | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | `str` | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | `str` | Type of Mullvad server |
+| `organization` | `str` | Organization associated with the IP |
 
 #### Example: Load
 

@@ -87,8 +87,16 @@ ip_information = client.IpInformation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `blacklisted` | `bool` | No |  |
-| `results` | `list` | No |  |
+| `blacklisted` | `dict` | No | Information about blacklist status |
+| `city` | `str` | No | City of the IP location |
+| `country` | `str` | No | Country code of the IP location |
+| `ip` | `str` | No | The current IP address |
+| `latitude` | `float` | No | Latitude coordinate of the IP location |
+| `longitude` | `float` | No | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | `bool` | No | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | `str` | No | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | `str` | No | Type of Mullvad server |
+| `organization` | `str` | No | Organization associated with the IP |
 
 ### Operations
 

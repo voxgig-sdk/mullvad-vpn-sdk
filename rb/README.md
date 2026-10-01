@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/mullvad-vpn-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-mullvad-vpn-sdk", path: "./mullvad-vpn-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
@@ -235,8 +244,16 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `blacklisted` |  |
-| `results` |  |
+| `blacklisted` | Information about blacklist status |
+| `city` | City of the IP location |
+| `country` | Country code of the IP location |
+| `ip` | The current IP address |
+| `latitude` | Latitude coordinate of the IP location |
+| `longitude` | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | Type of Mullvad server |
+| `organization` | Organization associated with the IP |
 
 Operations: Load.
 
@@ -261,8 +278,16 @@ Create an instance: `ip_information = client.IpInformation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `Boolean` |  |
-| `results` | `Array` |  |
+| `blacklisted` | `Hash` | Information about blacklist status |
+| `city` | `String` | City of the IP location |
+| `country` | `String` | Country code of the IP location |
+| `ip` | `String` | The current IP address |
+| `latitude` | `Float` | Latitude coordinate of the IP location |
+| `longitude` | `Float` | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | `Boolean` | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | `String` | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | `String` | Type of Mullvad server |
+| `organization` | `String` | Organization associated with the IP |
 
 #### Example: Load
 

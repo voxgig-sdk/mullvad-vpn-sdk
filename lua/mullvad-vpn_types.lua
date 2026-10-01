@@ -7,12 +7,28 @@
 -- edit by hand.
 
 ---@class IpInformation
----@field blacklisted? boolean
----@field results? table
+---@field blacklisted? table
+---@field city? string
+---@field country? string
+---@field ip? string
+---@field latitude? number
+---@field longitude? number
+---@field mullvad_exit_ip? boolean
+---@field mullvad_exit_ip_hostname? string
+---@field mullvad_server_type? string
+---@field organization? string
 
 ---@class IpInformationLoadMatch
----@field blacklisted? boolean
----@field results? table
+---@field blacklisted? table
+---@field city? string
+---@field country? string
+---@field ip? string
+---@field latitude? number
+---@field longitude? number
+---@field mullvad_exit_ip? boolean
+---@field mullvad_exit_ip_hostname? string
+---@field mullvad_server_type? string
+---@field organization? string
 
 local M = {}
 

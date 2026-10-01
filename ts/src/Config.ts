@@ -133,12 +133,64 @@ class Config {
         {
           "name": "blacklisted",
           "title": "Blacklisted",
-          "type": "`$BOOLEAN`"
+          "type": "`$OBJECT`",
+          "short": "Information about blacklist status"
         },
         {
-          "name": "results",
-          "title": "Results",
-          "type": "`$ARRAY`"
+          "name": "city",
+          "title": "City",
+          "type": "`$STRING`",
+          "short": "City of the IP location"
+        },
+        {
+          "name": "country",
+          "title": "Country",
+          "type": "`$STRING`",
+          "short": "Country code of the IP location"
+        },
+        {
+          "name": "ip",
+          "title": "Ip",
+          "type": "`$STRING`",
+          "short": "The current IP address"
+        },
+        {
+          "name": "latitude",
+          "title": "Latitude",
+          "type": "`$NUMBER`",
+          "short": "Latitude coordinate of the IP location",
+          "format": "float"
+        },
+        {
+          "name": "longitude",
+          "title": "Longitude",
+          "type": "`$NUMBER`",
+          "short": "Longitude coordinate of the IP location",
+          "format": "float"
+        },
+        {
+          "name": "mullvad_exit_ip",
+          "title": "Mullvad Exit Ip",
+          "type": "`$BOOLEAN`",
+          "short": "Indicates if the IP is a Mullvad exit IP"
+        },
+        {
+          "name": "mullvad_exit_ip_hostname",
+          "title": "Mullvad Exit Ip Hostname",
+          "type": "`$STRING`",
+          "short": "Hostname of the Mullvad exit server"
+        },
+        {
+          "name": "mullvad_server_type",
+          "title": "Mullvad Server Type",
+          "type": "`$STRING`",
+          "short": "Type of Mullvad server"
+        },
+        {
+          "name": "organization",
+          "title": "Organization",
+          "type": "`$STRING`",
+          "short": "Organization associated with the IP"
         }
       ],
       "name": "ip_information",
@@ -162,7 +214,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body.blacklisted`"
+                "res": "`body`"
               },
               "args": {},
               "select": {}

@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 MullvadVpnUtility.registrar = ->(u) {
   u.clean = MullvadVpnUtilities::Clean
+  u.clean_add = MullvadVpnUtilities::CleanAdd
+  u.clean_explain = MullvadVpnUtilities::CleanExplain
   u.done = MullvadVpnUtilities::Done
   u.make_error = MullvadVpnUtilities::MakeError
   u.feature_add = MullvadVpnUtilities::FeatureAdd

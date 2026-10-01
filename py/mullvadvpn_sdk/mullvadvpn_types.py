@@ -17,10 +17,26 @@ from typing import TypedDict, Any
 
 
 class IpInformation(TypedDict, total=False):
-    blacklisted: bool
-    results: list
+    blacklisted: dict
+    city: str
+    country: str
+    ip: str
+    latitude: float
+    longitude: float
+    mullvad_exit_ip: bool
+    mullvad_exit_ip_hostname: str
+    mullvad_server_type: str
+    organization: str
 
 
 class IpInformationLoadMatch(TypedDict, total=False):
-    blacklisted: bool
-    results: list
+    blacklisted: dict
+    city: str
+    country: str
+    ip: str
+    latitude: float
+    longitude: float
+    mullvad_exit_ip: bool
+    mullvad_exit_ip_hostname: str
+    mullvad_server_type: str
+    organization: str

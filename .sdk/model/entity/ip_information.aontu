@@ -9,13 +9,73 @@ main: kit: entity: ip_information: {
       h: "Blacklisted"
       n: "blacklisted"
       r: false
+      sh: "Information about blacklist status"
+      t: "`$OBJECT`"
+    }
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      sh: "City of the IP location"
+      t: "`$STRING`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      sh: "Country code of the IP location"
+      t: "`$STRING`"
+    }
+    ip: {
+      h: "Ip"
+      n: "ip"
+      r: false
+      sh: "The current IP address"
+      t: "`$STRING`"
+    }
+    latitude: {
+      fo: "float"
+      h: "Latitude"
+      n: "latitude"
+      r: false
+      sh: "Latitude coordinate of the IP location"
+      t: "`$NUMBER`"
+    }
+    longitude: {
+      fo: "float"
+      h: "Longitude"
+      n: "longitude"
+      r: false
+      sh: "Longitude coordinate of the IP location"
+      t: "`$NUMBER`"
+    }
+    mullvad_exit_ip: {
+      h: "Mullvad Exit Ip"
+      n: "mullvad_exit_ip"
+      r: false
+      sh: "Indicates if the IP is a Mullvad exit IP"
       t: "`$BOOLEAN`"
     }
-    results: {
-      h: "Results"
-      n: "results"
+    mullvad_exit_ip_hostname: {
+      h: "Mullvad Exit Ip Hostname"
+      n: "mullvad_exit_ip_hostname"
       r: false
-      t: "`$ARRAY`"
+      sh: "Hostname of the Mullvad exit server"
+      t: "`$STRING`"
+    }
+    mullvad_server_type: {
+      h: "Mullvad Server Type"
+      n: "mullvad_server_type"
+      r: false
+      sh: "Type of Mullvad server"
+      t: "`$STRING`"
+    }
+    organization: {
+      h: "Organization"
+      n: "organization"
+      r: false
+      sh: "Organization associated with the IP"
+      t: "`$STRING`"
     }
   }
 
@@ -39,7 +99,7 @@ main: kit: entity: ip_information: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.blacklisted`"
+            res: "`body`"
           }
         }
       ]

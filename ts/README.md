@@ -15,9 +15,13 @@ predictable and low-friction for both humans and AI agents.
 
 ## Install
 This package is not yet published to npm. Install it from the GitHub
-release tag (`ts/vX.Y.Z`):
+release tag (`ts/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases)), or from a
+clone, which carries the compiled `dist/`:
 
-- Releases: [https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases](https://github.com/voxgig-sdk/mullvad-vpn-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/mullvad-vpn-sdk
+npm install ./mullvad-vpn-sdk/ts
+```
 
 
 ## Tutorial: your first API call
@@ -290,8 +294,16 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `blacklisted` |  |
-| `results` |  |
+| `blacklisted` | Information about blacklist status |
+| `city` | City of the IP location |
+| `country` | Country code of the IP location |
+| `ip` | The current IP address |
+| `latitude` | Latitude coordinate of the IP location |
+| `longitude` | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | Type of Mullvad server |
+| `organization` | Organization associated with the IP |
 
 Operations: load.
 
@@ -316,8 +328,16 @@ Create an instance: `const ip_information = client.IpInformation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `blacklisted` | `boolean` |  |
-| `results` | `any[]` |  |
+| `blacklisted` | `Record<string, any>` | Information about blacklist status |
+| `city` | `string` | City of the IP location |
+| `country` | `string` | Country code of the IP location |
+| `ip` | `string` | The current IP address |
+| `latitude` | `number` | Latitude coordinate of the IP location |
+| `longitude` | `number` | Longitude coordinate of the IP location |
+| `mullvad_exit_ip` | `boolean` | Indicates if the IP is a Mullvad exit IP |
+| `mullvad_exit_ip_hostname` | `string` | Hostname of the Mullvad exit server |
+| `mullvad_server_type` | `string` | Type of Mullvad server |
+| `organization` | `string` | Organization associated with the IP |
 
 #### Example: Load
 

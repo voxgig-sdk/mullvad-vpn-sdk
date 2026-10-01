@@ -102,14 +102,82 @@
               "h": "Blacklisted",
               "n": "blacklisted",
               "r": false,
+              "sh": "Information about blacklist status",
+              "t": "`$OBJECT`"
+            },
+            "city": {
+              "a": true,
+              "h": "City",
+              "n": "city",
+              "r": false,
+              "sh": "City of the IP location",
+              "t": "`$STRING`"
+            },
+            "country": {
+              "a": true,
+              "h": "Country",
+              "n": "country",
+              "r": false,
+              "sh": "Country code of the IP location",
+              "t": "`$STRING`"
+            },
+            "ip": {
+              "a": true,
+              "h": "Ip",
+              "n": "ip",
+              "r": false,
+              "sh": "The current IP address",
+              "t": "`$STRING`"
+            },
+            "latitude": {
+              "a": true,
+              "fo": "float",
+              "h": "Latitude",
+              "n": "latitude",
+              "r": false,
+              "sh": "Latitude coordinate of the IP location",
+              "t": "`$NUMBER`"
+            },
+            "longitude": {
+              "a": true,
+              "fo": "float",
+              "h": "Longitude",
+              "n": "longitude",
+              "r": false,
+              "sh": "Longitude coordinate of the IP location",
+              "t": "`$NUMBER`"
+            },
+            "mullvad_exit_ip": {
+              "a": true,
+              "h": "Mullvad Exit Ip",
+              "n": "mullvad_exit_ip",
+              "r": false,
+              "sh": "Indicates if the IP is a Mullvad exit IP",
               "t": "`$BOOLEAN`"
             },
-            "results": {
+            "mullvad_exit_ip_hostname": {
               "a": true,
-              "h": "Results",
-              "n": "results",
+              "h": "Mullvad Exit Ip Hostname",
+              "n": "mullvad_exit_ip_hostname",
               "r": false,
-              "t": "`$ARRAY`"
+              "sh": "Hostname of the Mullvad exit server",
+              "t": "`$STRING`"
+            },
+            "mullvad_server_type": {
+              "a": true,
+              "h": "Mullvad Server Type",
+              "n": "mullvad_server_type",
+              "r": false,
+              "sh": "Type of Mullvad server",
+              "t": "`$STRING`"
+            },
+            "organization": {
+              "a": true,
+              "h": "Organization",
+              "n": "organization",
+              "r": false,
+              "sh": "Organization associated with the IP",
+              "t": "`$STRING`"
             }
           },
           "name": "ip_information",
@@ -138,7 +206,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.blacklisted`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -624,7 +692,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {
