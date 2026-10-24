@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { MullvadVpnSDK, BaseFeature, stdutil } from '../../..'
+import { MullvadVpnSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('IpInformationEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = MullvadVpnSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.IpInformation().load({"city":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.MULLVAD_VPN_TEST_LIVE
@@ -51,7 +63,7 @@ describe('IpInformationEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"blacklisted":{"a":true,"h":"Blacklisted","n":"blacklisted","r":false,"sh":"Information about blacklist status","t":"`$OBJECT`","key$":"blacklisted","index$":0},"city":{"a":true,"h":"City","n":"city","r":false,"sh":"City of the IP location","t":"`$STRING`","key$":"city","index$":1},"country":{"a":true,"h":"Country","n":"country","r":false,"sh":"Country code of the IP location","t":"`$STRING`","key$":"country","index$":2},"ip":{"a":true,"h":"Ip","n":"ip","r":false,"sh":"The current IP address","t":"`$STRING`","key$":"ip","index$":3},"latitude":{"a":true,"fo":"float","h":"Latitude","n":"latitude","r":false,"sh":"Latitude coordinate of the IP location","t":"`$NUMBER`","key$":"latitude","index$":4},"longitude":{"a":true,"fo":"float","h":"Longitude","n":"longitude","r":false,"sh":"Longitude coordinate of the IP location","t":"`$NUMBER`","key$":"longitude","index$":5},"mullvad_exit_ip":{"a":true,"h":"Mullvad Exit Ip","n":"mullvad_exit_ip","r":false,"sh":"Indicates if the IP is a Mullvad exit IP","t":"`$BOOLEAN`","key$":"mullvad_exit_ip","index$":6},"mullvad_exit_ip_hostname":{"a":true,"h":"Mullvad Exit Ip Hostname","n":"mullvad_exit_ip_hostname","r":false,"sh":"Hostname of the Mullvad exit server","t":"`$STRING`","key$":"mullvad_exit_ip_hostname","index$":7},"mullvad_server_type":{"a":true,"h":"Mullvad Server Type","n":"mullvad_server_type","r":false,"sh":"Type of Mullvad server","t":"`$STRING`","key$":"mullvad_server_type","index$":8},"organization":{"a":true,"h":"Organization","n":"organization","r":false,"sh":"Organization associated with the IP","t":"`$STRING`","key$":"organization","index$":9}},"name":"ip_information","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /json","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/json","q":{},"r":{},"s":[{"lit":"json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"ip_information","name__orig":"ip_information","Name":"IpInformation","name_":"ip_information","name-":"ip-information","NAME":"IP_INFORMATION","index$":0}, {"active":true,"entity":"ip_information","key$":"BasicIpInformationFlow","kind":"basic","name":"BasicIpInformationFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"ip_information_ref01","srcdatavar":"ip_information_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-ip_information_ref01"}}],"index$":0}]}, 'IpInformation', {"GET /json":{"protocol":"http","parameters":[]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"blacklisted":{"a":true,"h":"Blacklisted","n":"blacklisted","r":false,"sh":"Information about blacklist status","t":"`$OBJECT`","key$":"blacklisted","index$":0},"city":{"a":true,"h":"City","n":"city","r":false,"sh":"City of the IP location","t":"`$STRING`","key$":"city","index$":1},"country":{"a":true,"h":"Country","n":"country","r":false,"sh":"Country code of the IP location","t":"`$STRING`","key$":"country","index$":2},"ip":{"a":true,"h":"Ip","n":"ip","r":false,"sh":"The current IP address","t":"`$STRING`","key$":"ip","index$":3},"latitude":{"a":true,"fo":"float","h":"Latitude","n":"latitude","r":false,"sh":"Latitude coordinate of the IP location","t":"`$NUMBER`","key$":"latitude","index$":4},"longitude":{"a":true,"fo":"float","h":"Longitude","n":"longitude","r":false,"sh":"Longitude coordinate of the IP location","t":"`$NUMBER`","key$":"longitude","index$":5},"mullvad_exit_ip":{"a":true,"h":"Mullvad Exit Ip","n":"mullvad_exit_ip","r":false,"sh":"Indicates if the IP is a Mullvad exit IP","t":"`$BOOLEAN`","key$":"mullvad_exit_ip","index$":6},"mullvad_exit_ip_hostname":{"a":true,"h":"Mullvad Exit Ip Hostname","n":"mullvad_exit_ip_hostname","r":false,"sh":"Hostname of the Mullvad exit server","t":"`$STRING`","key$":"mullvad_exit_ip_hostname","index$":7},"mullvad_server_type":{"a":true,"h":"Mullvad Server Type","n":"mullvad_server_type","r":false,"sh":"Type of Mullvad server","t":"`$STRING`","key$":"mullvad_server_type","index$":8},"organization":{"a":true,"h":"Organization","n":"organization","r":false,"sh":"Organization associated with the IP","t":"`$STRING`","key$":"organization","index$":9}},"name":"ip_information","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /json","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/json","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"json"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"ip_information","name__orig":"ip_information","Name":"IpInformation","name_":"ip_information","name-":"ip-information","NAME":"IP_INFORMATION","index$":0}, {"active":true,"entity":"ip_information","key$":"BasicIpInformationFlow","kind":"basic","name":"BasicIpInformationFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"ip_information_ref01","srcdatavar":"ip_information_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-ip_information_ref01"}}],"index$":0}]}, 'IpInformation', {"GET /json":{"protocol":"http","parameters":[]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +84,12 @@ describe('IpInformationEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

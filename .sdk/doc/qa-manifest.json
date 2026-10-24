@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "City of the IP location",
+      "Country code of the IP location",
+      "Information about blacklist status",
+      "Latitude coordinate of the IP location",
+      "Mullvad VPN IPv4 API Server",
+      "Successful response with IP information",
+      "The Mullvad VPN API enables users to interact with the Mullvad VPN browser extension, facilitating privacy and security solutions against mass surveillance and censorship. It provides functionalities such as retrieving the current IP address associated with the VPN connection.",
+      "The current IP address"
+    ]
+  }
 }

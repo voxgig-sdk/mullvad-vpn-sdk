@@ -92,6 +92,10 @@ main: kit: entity: ip_information: {
           }
           m: "GET"
           o: "/json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "json"
